@@ -22,6 +22,18 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); // Hämtar Rigidbody2D-komponenten
     }
 
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(Jump) && isGrounded == true)
+        {
+
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            Debug.Log("Jump");
+
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -45,13 +57,7 @@ public class Movement : MonoBehaviour
            rb.AddForce(Vector2.left * speed , ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt vänster
             Debug.Log("left");
         }
-        if(Input.GetKeyDown(Jump)&& isgrounded == true) 
-        {
-            
-           rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Force);
-            Debug.Log("Jump");
-
-        }
+       
        
     }
     
