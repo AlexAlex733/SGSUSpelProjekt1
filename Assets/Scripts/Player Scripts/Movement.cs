@@ -1,6 +1,7 @@
 using System.ComponentModel.Design;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Movement : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Movement : MonoBehaviour
     [SerializeField] KeyCode left = KeyCode.A;
     [SerializeField] KeyCode Jump = KeyCode.Space;
     private Rigidbody2D rb;
-    private bool isgrounded = true;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,28 +38,26 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        float moveDirection = Input.GetAxis("Horizontal");
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundMask); // kollar om karaktären är på marken 
-        if (isGrounded)
-        {
-            Debug.Log ("Grounded");
-        }
-        else
-        {
-           Debug.Log ("Not Grounded");
-        }
+        Move(moveDirection);
+    }
+    void Move(float direction)
+    {
+        Vector2 movement = new Vector2(direction * speed, rb.linearVelocity.y);
+        float absoluteSpeed = Mathf.Abs(direction * speed);
+        isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundMask); // kollar om karaktären är på marken 
 
         if (Input.GetKey(right))
         {
-           rb.AddForce(Vector2.right  * speed, ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt höger
-            Debug.Log("right");
+            rb.AddForce(movement * speed, ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt höger
+     
         }
-        if(Input.GetKey(left))
+        if (Input.GetKey(left))
         {
-           rb.AddForce(Vector2.left * speed , ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt vänster
-            Debug.Log("left");
+            rb.AddForce(movement * speed, ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt vänster
+           
         }
-       
-       
+
     }
-    
 }

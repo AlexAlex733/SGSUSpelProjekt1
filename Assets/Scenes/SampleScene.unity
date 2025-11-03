@@ -340,8 +340,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isGrounded: 0
-  speed: 9.8
-  jumpForce: 7
+  speed: 5.3
+  jumpForce: 4.6
   right: 100
   left: 97
   Jump: 32
