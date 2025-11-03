@@ -1,0 +1,35 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Teleporter : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+       
+        
+
+    }
+
+
+    private void onTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Teleporter_2")) // om spelaren kolliderar med en objekt med taggen "Teleporter_2" så skicas dem till Level2
+        {
+            SceneManager.LoadScene("Level2");
+            Debug.Log("Player has entered the teleporter and is being teleported to Level2.");
+        }
+
+        else if (collision.CompareTag("Teleporter_3")) // om spelaren kolliderar med en objekt med taggen "Teleporter_3" så skicas dem till Level3
+        {
+            SceneManager.LoadScene("Level3");
+            Debug.Log("Player has entered the teleporter and is being teleported to Level3.");
+        }
+    }
+}
