@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHP : MonoBehaviour
 {
@@ -12,5 +13,11 @@ public class PlayerHP : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Ondie ()
+    {
+        SceneManager.LoadScene("Deathscene");
+        Debug.Log("Player has died.");
     }
 }
