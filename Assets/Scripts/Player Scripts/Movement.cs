@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public LayerMask groundMask; // Layer for ground objects
     public bool isGrounded;
     [SerializeField, Range(0.0005f, 25)] float speed;
+    [SerializeField, Range(0.0005f, 25)] float jumpForce;
     [SerializeField] KeyCode right = KeyCode.D;
     [SerializeField] KeyCode left = KeyCode.A;
     [SerializeField] KeyCode Jump = KeyCode.Space;
@@ -22,7 +23,7 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundMask); // kollar om karaktären är på marken 
         if (isGrounded)
@@ -36,18 +37,18 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(right))
         {
-           rb.AddForce(Vector2.right * speed * Time.deltaTime, ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt höger
+           rb.AddForce(Vector2.right  * speed, ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt höger
             Debug.Log("right");
         }
         if(Input.GetKey(left))
         {
-           rb.AddForce(Vector2.left * speed * Time.deltaTime, ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt vänster
+           rb.AddForce(Vector2.left * speed , ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt vänster
             Debug.Log("left");
         }
         if(Input.GetKeyDown(Jump)&& isgrounded == true) 
         {
             
-           rb.AddForce(Vector2.up * speed * Time.deltaTime, ForceMode2D.Force);
+           rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Force);
             Debug.Log("Jump");
 
         }
