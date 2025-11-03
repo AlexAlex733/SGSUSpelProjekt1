@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Teleporter_2
+  - Teleporter_3
   layers:
   - Default
   - TransparentFX
