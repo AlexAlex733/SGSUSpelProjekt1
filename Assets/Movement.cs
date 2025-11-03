@@ -36,19 +36,19 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(right))
         {
-            rb.linearVelocity = new Vector3(1, 0, 0);
+           rb.AddForce(Vector2.right * speed * Time.deltaTime, ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt höger
             Debug.Log("right");
         }
         if(Input.GetKey(left))
-
         {
-            rb.linearVelocity = new Vector3(-1, 0, 0);
+           rb.AddForce(Vector2.left * speed * Time.deltaTime, ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt vänster
             Debug.Log("left");
         }
         if(Input.GetKeyDown(Jump)&& isgrounded == true) 
         {
             
-           rb.linearVelocity = new Vector3(0, 5, 0);
+           rb.AddForce(Vector2.up * speed * Time.deltaTime, ForceMode2D.Force);
+            Debug.Log("Jump");
 
         }
        
