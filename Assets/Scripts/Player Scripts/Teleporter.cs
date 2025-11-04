@@ -18,7 +18,7 @@ public class Teleporter : MonoBehaviour
     }
 
 
-    private void onTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Teleporter_2")) // om spelaren kolliderar med en objekt med taggen "Teleporter_2" så skicas dem till Level2
         {

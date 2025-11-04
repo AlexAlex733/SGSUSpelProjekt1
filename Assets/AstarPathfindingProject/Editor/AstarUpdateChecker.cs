@@ -189,7 +189,7 @@ namespace Pathfinding {
 		}
 
 		static void DownloadVersionInfo () {
-			var script = AstarPath.active != null ? AstarPath.active : GameObject.FindObjectOfType(typeof(AstarPath)) as AstarPath;
+			var script = AstarPath.active != null ? AstarPath.active : Object.FindFirstObjectByType(typeof(AstarPath)) as AstarPath;
 
 			if (script != null) {
 				script.ConfigureReferencesInternal();
@@ -198,7 +198,7 @@ namespace Pathfinding {
 				}
 			}
 
-			bool mecanim = GameObject.FindObjectOfType(typeof(Animator)) != null;
+			bool mecanim = Object.FindFirstObjectByType(typeof(Animator)) != null;
 			string query = updateURL+
 						   "?v="+AstarPath.Version+
 						   "&pro=0"+
@@ -221,7 +221,7 @@ namespace Pathfinding {
 
 #if UNITY_2018_1_OR_NEWER
 			updateCheckDownload = UnityWebRequest.Get(query);
-			updateCheckDownload.SendWebRequest();
+			///updateCheckDownload.SendWebRequest();
 #else
 			updateCheckDownload = new WWW(query);
 #endif
