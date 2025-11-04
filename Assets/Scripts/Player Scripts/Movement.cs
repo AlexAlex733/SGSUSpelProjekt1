@@ -9,8 +9,10 @@ public class Movement : MonoBehaviour
     public float groundCheckRadius = 0.2f; // Distance of the ground check
     public LayerMask groundMask; // Layer for ground objects
     public bool isGrounded;
+    [SerializeField, Range(0.0005f, 25)] float maxSpeed;
     [SerializeField, Range(0.0005f, 25)] float speed;
     [SerializeField, Range(0.0005f, 25)] float jumpForce;
+    float currentSpeed;
     [SerializeField] KeyCode right = KeyCode.D;
     [SerializeField] KeyCode left = KeyCode.A;
     [SerializeField] KeyCode Jump = KeyCode.Space;
@@ -44,16 +46,16 @@ public class Movement : MonoBehaviour
     }
     void Move(float direction)
     {
-        Vector2 movement = new Vector2(direction * speed, rb.linearVelocity.y);
-        float absoluteSpeed = Mathf.Abs(direction * speed);
+        Vector2 movement = new Vector2(direction * speed, 0);
+     
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundMask); // kollar om karaktären är på marken 
 
-        if (Input.GetKey(right))
+        if (Input.GetKey(right) && speed >= maxSpeed)
         {
             rb.AddForce(movement * speed, ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt höger
      
         }
-        if (Input.GetKey(left))
+        if (Input.GetKey(left) && speed >= maxSpeed)
         {
             rb.AddForce(movement * speed, ForceMode2D.Force); // Gör så att våran karaktär kan röra på sig åt vänster
            
