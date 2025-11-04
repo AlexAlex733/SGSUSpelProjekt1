@@ -70,7 +70,7 @@ public class Navigation : MonoBehaviour //Måste ha samma namn som scriptet
 
        
 
-      //  transform.position = Vector2.MoveTowards(transform.position, homePos.position, speed * Time.deltaTime); //player härmar vilken position hem har
+        transform.position = Vector2.MoveTowards(transform.position, homePos.position, speed * Time.deltaTime); //player härmar vilken position hem har
 
         if (Vector2.Distance(transform.position, homePos.position) == 0)
 
