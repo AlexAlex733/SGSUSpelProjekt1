@@ -1,8 +1,11 @@
 using UnityEngine;
-using UnitySceneManager;
+
 public class MainMenu : MonoBehaviour
 {
-   
+    public void PlayGame()
+    {
+       
+    }
 
 
 
