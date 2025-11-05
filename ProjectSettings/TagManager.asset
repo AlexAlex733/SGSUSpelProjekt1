@@ -53,5 +53,8 @@ TagManager:
   - name: Solids
     uniqueID: 830064461
     locked: 0
+  - name: Player
+    uniqueID: 3207327193
+    locked: 0
   m_RenderingLayers:
   - Default
