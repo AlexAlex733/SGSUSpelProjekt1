@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     [SerializeField] bool canDash = true;
     [SerializeField] bool isDashing = false;
     [SerializeField] float dashTime = 0.2f;
+    [SerializeField] float dashjumpBonus = 1.2f;
     [SerializeField, Range(0.0005f, 25)] float dashPower;
 
     private float horizontal;
@@ -17,12 +18,14 @@ public class Movement : MonoBehaviour
     public Transform groundCheckPoint; // Point from where the radius will be positioned
     public float groundCheckRadius = 0.2f; // Distance of the ground check
     public LayerMask groundMask; // Layer for ground objects
-    [SerializeField] int jumpTimes = 2;
+    [SerializeField] int jumpTimes = 1;
     
-    public bool isGrounded;
-    public bool isFacingRight = true;
+    bool isGrounded;
+    bool isFacingRight = true;
     [SerializeField, Range(0.0005f, 25)] float speed;
     [SerializeField, Range(0.0005f, 25)] float jumpForce;
+    [SerializeField] float jumpCooldown = 0.4f;
+    private bool canJump = true;
     
     [SerializeField] KeyCode right = KeyCode.D;
     [SerializeField] KeyCode left = KeyCode.A;
@@ -60,21 +63,28 @@ public class Movement : MonoBehaviour
         Flip();
 
 
+      
+
+        if (Input.GetKeyDown(Jump) && jumpTimes > 0 && canJump)
+        {
+            jumpTimes -= 1;
+            if (canDash)
+            {
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
+            else if (!canDash)
+            {
+                rb.AddForce(Vector2.up * jumpForce * dashjumpBonus, ForceMode2D.Impulse);
+            }
+                canJump = false;
+            StartCoroutine(JumpCooldown());
+
+        }
         if (isGrounded)
         {
-            jumpTimes = 2;
+            jumpTimes = 1;
             canDash = true;
         }
-
-        if (Input.GetKeyDown(Jump) && jumpTimes > 0)
-        {
-
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            jumpTimes--;
-           
-
-        }
-
         if (Input.GetKeyDown(dash) && canDash)
         {
             StartCoroutine(Dash());
@@ -107,5 +117,11 @@ public class Movement : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         
+    }
+
+    IEnumerator JumpCooldown()
+    {
+        yield return new WaitForSeconds(jumpCooldown);
+        canJump = true;
     }
 }
