@@ -32237,6 +32237,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fce1b3821e8c404ea734ecd0f92d772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashCooldown: 1
+  canDash: 1
+  isDashing: 0
+  dashTime: 0.2
+  dashPower: 25
   groundCheckPoint: {fileID: 344716107}
   groundCheckRadius: 0.2
   groundMask:
@@ -32245,11 +32250,12 @@ MonoBehaviour:
   jumpTimes: 2
   isGrounded: 0
   isFacingRight: 1
-  speed: 5.3
+  speed: 6.7
   jumpForce: 6
   right: 100
   left: 97
   Jump: 32
+  dash: 304
 --- !u!114 &975806466
 MonoBehaviour:
   m_ObjectHideFlags: 0
