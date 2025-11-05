@@ -55,7 +55,7 @@ public class enemyController : MonoBehaviour //Måste ha samma namn som scriptet
 
         //anim.SetBool("WithinRange", true); //om enemy följer player starta withinRange animationerna
 
-       // anim.SetFloat("MoveHorizontal", (target.position.x - transform.position.x)); //enemy följer efter x axeln
+        // anim.SetFloat("MoveHorizontal", (target.position.x - transform.position.x)); //enemy följer efter x axeln
 
        // anim.SetFloat("MoveVertical", (target.position.y - transform.position.y)); //enemy följer efter y axeln
 

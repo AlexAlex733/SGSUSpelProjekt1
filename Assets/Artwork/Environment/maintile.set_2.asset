@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: pixilart-drawing (6)_0
+  m_Name: maintile.set_2
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -6135570678308618660, guid: e36e69e1ab9f24f4fbfe7f483f890cf4, type: 3}
+  m_Sprite: {fileID: -655642207354035634, guid: 1ba13bb741c6e1141a80c7f9b4a7fa85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
