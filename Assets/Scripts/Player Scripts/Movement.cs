@@ -75,7 +75,7 @@ public class Movement : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(dash))
+        if (Input.GetKeyDown(dash) && canDash)
         {
             StartCoroutine(Dash());
         }
@@ -106,6 +106,6 @@ public class Movement : MonoBehaviour
         rb.gravityScale = originalGravity;
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
+        
     }
 }
