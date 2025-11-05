@@ -44,5 +44,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Details
+    uniqueID: 1589057873
+    locked: 0
+  - name: Extra Details
+    uniqueID: 1845351625
+    locked: 0
+  - name: Solids
+    uniqueID: 830064461
+    locked: 0
+  - name: Player
+    uniqueID: 3207327193
+    locked: 0
   m_RenderingLayers:
   - Default
