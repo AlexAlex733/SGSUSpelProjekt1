@@ -390495,14 +390495,15 @@ MonoBehaviour:
   dashTime: 0.2
   dashjumpBonus: 1.2
   dashPower: 25
+  dashRefresh: 0.5
   groundCheckPoint: {fileID: 1975866988}
   groundCheckRadius: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   jumpTimes: 2
-  speed: 6.7
-  jumpForce: 6
+  speed: 6
+  jumpForce: 7
   jumpCooldown: 0.4
   right: 100
   left: 97
@@ -391036,6 +391037,26 @@ Tilemap:
   m_GameObject: {fileID: 1887597116}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: -129, y: -15, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -74, y: -15, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -66, y: -15, z: 0}
     second:
       serializedVersion: 2
@@ -391248,17 +391269,17 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 11
+  - m_RefCount: 12
     m_Data: {fileID: 11400000, guid: c326de39925d65e4ca3529ac10e881f2, type: 2}
-  - m_RefCount: 10
+  - m_RefCount: 11
     m_Data: {fileID: 11400000, guid: 44c1618ad215e9e4db375db53a1544ff, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 11
+  - m_RefCount: 12
     m_Data: {fileID: 934046419539569179, guid: e2003725d2fc84a4dbdaaeb87ae4cc82, type: 3}
-  - m_RefCount: 10
+  - m_RefCount: 11
     m_Data: {fileID: -6722710954599950200, guid: 901f90a9acedd2c48826dd9fa0ca608d, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 21
+  - m_RefCount: 23
     m_Data:
       e00: 1
       e01: 0
@@ -391277,13 +391298,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 21
+  - m_RefCount: 23
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -123, y: -15, z: 0}
-  m_Size: {x: 123, y: 22, z: 1}
+  m_Origin: {x: -129, y: -15, z: 0}
+  m_Size: {x: 129, y: 22, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
