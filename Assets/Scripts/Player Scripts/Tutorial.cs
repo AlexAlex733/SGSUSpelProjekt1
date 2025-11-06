@@ -24,7 +24,7 @@ public class Tutorial : MonoBehaviour
         }   
         if (popUpIndex == 0)
         {
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             {
                 popUpIndex++;
             }
