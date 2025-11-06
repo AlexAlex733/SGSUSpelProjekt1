@@ -5,9 +5,7 @@ public class PlayerHP : MonoBehaviour
 {
     public int playerHP;
     public int playerMaxHP;
-    public int damage = 1;
-    [SerializeField] KeyCode testDamage = KeyCode.O;
-    [SerializeField] KeyCode testHeal = KeyCode.P;
+   
 
     [SerializeField] GameObject heart1;
     [SerializeField] GameObject heart2;
@@ -17,18 +15,9 @@ public class PlayerHP : MonoBehaviour
     {
         playerHP = playerMaxHP;
     }
-
-   
-    public void TakeDamage()
+    void Update()
     {
-        if (Input.GetKeyDown(testDamage))
-        {
-            playerHP -= damage;
-        }
-        else if (Input.GetKeyDown(testHeal))
-        { 
-            playerHP += damage;
-        }
+       
 
         if (playerHP >= 3)
         {
@@ -56,6 +45,11 @@ public class PlayerHP : MonoBehaviour
             heart3.SetActive(false);
         }
     }
+
+    
+    
+       
+    
 
     public void Ondie ()
     {

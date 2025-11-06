@@ -809,7 +809,6 @@ GameObject:
   - component: {fileID: 574504872}
   - component: {fileID: 574504874}
   - component: {fileID: 574504873}
-  - component: {fileID: 574504875}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -904,19 +903,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &574504875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574504871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b32e632d91ece84a94e0ae4c559ecc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -251772,8 +251758,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1211144071}
   - component: {fileID: 1211144070}
+  - component: {fileID: 1211144074}
   - component: {fileID: 1211144069}
-  - component: {fileID: 1211144072}
   - component: {fileID: 1211144073}
   m_Layer: 0
   m_Name: Square
@@ -251869,19 +251855,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1577919866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1211144072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211144068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b32e632d91ece84a94e0ae4c559ecc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
 --- !u!61 &1211144073
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -251928,6 +251901,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1211144074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211144068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b7b6b6c9ae2b144b0c3a4d092d9d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &1248468548
 GameObject:
   m_ObjectHideFlags: 0
@@ -252513,9 +252499,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHP: 3
   playerMaxHP: 3
-  damage: 1
-  testDamage: 111
-  testHeal: 112
   heart1: {fileID: 1248468548}
   heart2: {fileID: 1369479130}
   heart3: {fileID: 1513707573}
