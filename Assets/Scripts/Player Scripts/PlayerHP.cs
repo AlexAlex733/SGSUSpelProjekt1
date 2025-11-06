@@ -5,7 +5,7 @@ public class PlayerHP : MonoBehaviour
 {
     public int playerHP;
     public int playerMaxHP;
-    public int damage;
+    public int damage = 1;
     [SerializeField] KeyCode testDamage = KeyCode.O;
     [SerializeField] KeyCode testHeal = KeyCode.P;
 
@@ -19,7 +19,7 @@ public class PlayerHP : MonoBehaviour
     }
 
    
-    void Update()
+    public void TakeDamage()
     {
         if (Input.GetKeyDown(testDamage))
         {
@@ -62,4 +62,5 @@ public class PlayerHP : MonoBehaviour
         SceneManager.LoadScene("Deathscene");
         Debug.Log("Player has died.");
     }
+    
 }
