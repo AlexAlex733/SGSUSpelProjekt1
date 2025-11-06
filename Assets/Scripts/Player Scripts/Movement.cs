@@ -32,11 +32,14 @@ public class Movement : MonoBehaviour
     [SerializeField] KeyCode Jump = KeyCode.Space;
     [SerializeField] KeyCode dash = KeyCode.LeftShift;
     private Rigidbody2D rb;
+    [SerializeField] private TrailRenderer tr;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        tr.emitting = false;
         rb = GetComponent<Rigidbody2D>(); // Hämtar Rigidbody2D-komponenten
     }
 
@@ -128,12 +131,12 @@ public class Movement : MonoBehaviour
         isDashing = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
-        //transform.position += new Vector3 (0f, 0.1f, 0f);
+        transform.position += new Vector3 (0f, 0.02f, 0f);
         StartCoroutine(DashJumpBonusWait());
         rb.linearVelocity = new Vector2(transform.localScale.x * dashPower, 0f);
-        //tr.emitting = true;
+        tr.emitting = true;
         yield return new WaitForSeconds(dashTime);
-        //tr.emitting = false;
+        tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
         
