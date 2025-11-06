@@ -390495,7 +390495,6 @@ MonoBehaviour:
   dashTime: 0.2
   dashjumpBonus: 1.2
   dashPower: 25
-  dashRefresh: 0.5
   groundCheckPoint: {fileID: 1975866988}
   groundCheckRadius: 0.2
   groundMask:
@@ -390503,7 +390502,7 @@ MonoBehaviour:
     m_Bits: 64
   jumpTimes: 2
   speed: 6
-  jumpForce: 7
+  jumpForce: 6.5
   jumpCooldown: 0.4
   right: 100
   left: 97
@@ -391127,7 +391126,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -119, y: -9, z: 0}
+  - first: {x: -119, y: -10, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1

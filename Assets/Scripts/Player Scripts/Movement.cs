@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     [SerializeField] bool canDash = true;
     [SerializeField] bool isDashing = false;
     [SerializeField] float dashTime = 0.2f;
-    [SerializeField] float dashjumpBonus = 1.2f;
+    [SerializeField] float dashjumpBonus = 1.5f;
     [SerializeField, Range(0.0005f, 25)] float dashPower;
 
 
