@@ -9,6 +9,6 @@ public class BackroundFollow : MonoBehaviour
     {
         Vector3 targetPosition = new Vector3(player.position.x, player.position.y, transform.position.z); // Hitta players postion men inte y
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime); // Följ efter önskad hastighet
-        Debug.Log("Camera Position: " + transform.position); // Logga kamerans position för felsökning
+        
     }
 }
