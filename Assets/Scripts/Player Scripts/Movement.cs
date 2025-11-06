@@ -12,6 +12,8 @@ public class Movement : MonoBehaviour
     [SerializeField] float dashTime = 0.2f;
     [SerializeField] float dashjumpBonus = 1.2f;
     [SerializeField, Range(0.0005f, 25)] float dashPower;
+    [SerializeField] int dashJumpBonusActive = 1;
+
 
 
     private float horizontal;
@@ -21,15 +23,12 @@ public class Movement : MonoBehaviour
     public LayerMask groundMask; // Layer for ground objects
     [SerializeField] int jumpTimes = 1;
     
-    bool isGrounded;
+    [SerializeField] bool isGrounded;
     bool isFacingRight = true;
     [SerializeField, Range(0.0005f, 25)] float speed;
     [SerializeField, Range(0.0005f, 25)] float jumpForce;
     [SerializeField] float jumpCooldown = 0.4f;
     private bool canJump = true;
-    
-    [SerializeField] KeyCode right = KeyCode.D;
-    [SerializeField] KeyCode left = KeyCode.A;
     [SerializeField] KeyCode Jump = KeyCode.Space;
     [SerializeField] KeyCode dash = KeyCode.LeftShift;
     private Rigidbody2D rb;
@@ -61,36 +60,54 @@ public class Movement : MonoBehaviour
             return;
         }
 
-        Flip();
+        if (dashJumpBonusActive > 1)
+        {
+            dashJumpBonusActive = 1;
+        }
+        else if (dashJumpBonusActive < 0)
+        {
+            dashJumpBonusActive = 0;
+        }
+
+            Flip();
 
 
-      
+       if (Input.GetKeyDown(dash) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
 
         if (Input.GetKeyDown(Jump) && jumpTimes > 0 && canJump)
         {
             jumpTimes -= 1;
-            if (canDash)
+            if (dashJumpBonusActive == 0)
             {
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
-            else if (!canDash)
+            else if (dashJumpBonusActive == 1)
             {
                 rb.AddForce(Vector2.up * jumpForce * dashjumpBonus, ForceMode2D.Impulse);
+                dashJumpBonusActive = 0;
             }
                 canJump = false;
             StartCoroutine(JumpCooldown());
 
         }
-        if (isGrounded && !isDashing)
-        {
+        if (isGrounded)
+        {            
             jumpTimes = 1;
             canDash = true;
-   
+            dashJumpBonusActive = 0;
+           
+            
         }
-        if (Input.GetKeyDown(dash) && canDash)
-        {
-            StartCoroutine(Dash());
-        }
+        if (isDashing)
+            {   
+                canDash = false;
+                isGrounded = false;
+                dashJumpBonusActive = 1;
+                
+            }
         
     }
 
@@ -111,16 +128,24 @@ public class Movement : MonoBehaviour
         isDashing = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
+        //transform.position += new Vector3 (0f, 0.1f, 0f);
+        StartCoroutine(DashJumpBonusWait());
         rb.linearVelocity = new Vector2(transform.localScale.x * dashPower, 0f);
         //tr.emitting = true;
         yield return new WaitForSeconds(dashTime);
         //tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
-        yield return new WaitForSeconds(dashCooldown);
         
+        
+
     }
 
+    IEnumerator DashJumpBonusWait()
+    {
+        yield return new WaitForEndOfFrame();
+        dashJumpBonusActive = 1;
+    }
     IEnumerator JumpCooldown()
     {
         yield return new WaitForSeconds(jumpCooldown);
