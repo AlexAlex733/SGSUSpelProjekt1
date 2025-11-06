@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float dashTime = 0.2f;
     [SerializeField] float dashjumpBonus = 1.2f;
     [SerializeField, Range(0.0005f, 25)] float dashPower;
-    [SerializeField] float dashRefresh = 0.5f;
+
 
     private float horizontal;
    
@@ -81,10 +81,11 @@ public class Movement : MonoBehaviour
             StartCoroutine(JumpCooldown());
 
         }
-        if (isGrounded)
+        if (isGrounded && !isDashing)
         {
             jumpTimes = 1;
-            StartCoroutine(DashRefresh());
+            canDash = true;
+   
         }
         if (Input.GetKeyDown(dash) && canDash)
         {
@@ -118,12 +119,6 @@ public class Movement : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         
-    }
-
-    IEnumerator DashRefresh()
-    {
-        yield return new WaitForSeconds(dashRefresh);
-        canDash = true;
     }
 
     IEnumerator JumpCooldown()
