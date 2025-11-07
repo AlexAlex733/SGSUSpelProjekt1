@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 498663768}
   - component: {fileID: 498663770}
   m_Layer: 0
-  m_Name: Square (5)
+  m_Name: Snake(5)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1068,7 +1068,7 @@ GameObject:
   - component: {fileID: 574504873}
   - component: {fileID: 574504875}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Snake(1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249123,7 +249123,7 @@ GameObject:
   - component: {fileID: 1010786673}
   - component: {fileID: 1010786675}
   m_Layer: 0
-  m_Name: Square (7)
+  m_Name: Snake(7)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249251,7 +249251,7 @@ GameObject:
   - component: {fileID: 1015928728}
   - component: {fileID: 1015928730}
   m_Layer: 0
-  m_Name: Square (3)
+  m_Name: Snake(3)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250303,7 +250303,7 @@ GameObject:
   - component: {fileID: 1211288020}
   - component: {fileID: 1211288022}
   m_Layer: 0
-  m_Name: Square (6)
+  m_Name: Snake(6)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251721,7 +251721,7 @@ GameObject:
   - component: {fileID: 1645254202}
   - component: {fileID: 1645254204}
   m_Layer: 0
-  m_Name: Square (8)
+  m_Name: Snake(8)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251849,7 +251849,7 @@ GameObject:
   - component: {fileID: 1647310222}
   - component: {fileID: 1647310224}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: Snake(2)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -252208,7 +252208,7 @@ GameObject:
   - component: {fileID: 2071913873}
   - component: {fileID: 2071913875}
   m_Layer: 0
-  m_Name: Square (4)
+  m_Name: Snake(4)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -252448,7 +252448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6933954583590835219, guid: ae615dae9e75fa34382def4ac0353a4f, type: 3}
       propertyPath: m_Name
-      value: Square
+      value: Snake
       objectReference: {fileID: 0}
     - target: {fileID: 8934591735895783689, guid: ae615dae9e75fa34382def4ac0353a4f, type: 3}
       propertyPath: target
