@@ -21,21 +21,21 @@ public class Teleporter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Teleporter_2")) // om spelaren kolliderar med en objekt med taggen "Teleporter_2" så skicas dem till Level2
+        if (collision.CompareTag("Teleporter_2")) // om spelaren kolliderar med en objekt med taggen "Teleporter_2" så skicas dem till Level2 - Rasmus
         {
             SceneManager.LoadScene("Level2");
 
         }
 
-        else if (collision.CompareTag("Teleporter_3")) // om spelaren kolliderar med en objekt med taggen "Teleporter_3" så skicas dem till Level3
+        else if (collision.CompareTag("Teleporter_3")) // om spelaren kolliderar med en objekt med taggen "Teleporter_3" så skicas dem till Level3 - Rasmus
         {
             SceneManager.LoadScene("Surface Level");
 
 
         
         }
-        else if (collision.CompareTag("Teleporter_End"))
-            {
+        else if (collision.CompareTag("Teleporter_End")) // om spelaren kolliderar med en objekt med taggen "Teleporter_End" så skicas dem till Ending - Rasmus
+        {
             SceneManager.LoadScene("Ending");
 
         }
