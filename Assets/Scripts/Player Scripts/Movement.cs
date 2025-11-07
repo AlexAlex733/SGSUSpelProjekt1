@@ -1,8 +1,7 @@
 using System.Collections;
-using System.ComponentModel.Design;
-using Unity.VisualScripting;
+
 using UnityEngine;
-using UnityEngine.EventSystems;
+
 
 public class Movement : MonoBehaviour
 {
