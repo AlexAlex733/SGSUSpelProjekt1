@@ -24,20 +24,20 @@ public class Teleporter : MonoBehaviour
         if (collision.CompareTag("Teleporter_2")) // om spelaren kolliderar med en objekt med taggen "Teleporter_2" så skicas dem till Level2
         {
             SceneManager.LoadScene("Level2");
-            Debug.Log("Player has entered the teleporter and is being teleported to Level2.");
+
         }
 
         else if (collision.CompareTag("Teleporter_3")) // om spelaren kolliderar med en objekt med taggen "Teleporter_3" så skicas dem till Level3
         {
             SceneManager.LoadScene("Surface Level");
-            Debug.Log("Player has entered the teleporter and is being teleported to Level3.");
+
 
         
         }
         else if (collision.CompareTag("Teleporter_End"))
             {
             SceneManager.LoadScene("Ending");
-            Debug.Log("Player has entered the teleporter and is being teleported to the Endscene.");
+
         }
     }
 }
