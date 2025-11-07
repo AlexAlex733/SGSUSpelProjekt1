@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    // Different Variables for dashing - Alexander
     [SerializeField] float dashCooldown = 1;
     [SerializeField] bool canDash = true;
     [SerializeField] bool isDashing = false;
@@ -47,29 +48,33 @@ public class Movement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        walkingSource.clip = walkingSound;
+        walkingSource.clip = walkingSound; // Makes the sound work - Alexander
         jumpSource.clip = jumpSound;
         dashSource.clip = dashSound;
         walkingSource.loop = true;
-        tr.emitting = false;
-        rb = GetComponent<Rigidbody2D>(); // Hämtar Rigidbody2D-komponenten
+
+        tr.emitting = false; // Makes it so there isn't a trail before you dash - Alexander
+        rb = GetComponent<Rigidbody2D>(); // Gets the Rigidbody componenet - Alexander
     }
 
 
     private void FixedUpdate()
     {
+        //Makes it so you can't do anything else while dashing - Alexander
         if (isDashing)
         {
             return;
         }
+        // Gets player mvoement - Alexander
         horizontal = Input.GetAxisRaw("Horizontal");
-        isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundMask);
+        isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundMask); //Groundcheck - Alexander
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocityY);
      
     }
 
     private void Update()
     {
+        // Walk sounds while walking and not in the air - Alexander
         if(horizontal != 0 && isGrounded)
         {
             walkingSource.enabled = true;
@@ -78,12 +83,12 @@ public class Movement : MonoBehaviour
         {
             walkingSource.enabled = false;
         }
-
+        // If dashing can't do anything else - Alexander
         if (isDashing)
         {
             return;
         }
-
+        // A variable inuse for the jump dash bonus - Alexander
         if (dashJumpBonusActive > 1)
         {
             dashJumpBonusActive = 1;
@@ -95,12 +100,13 @@ public class Movement : MonoBehaviour
 
             Flip();
 
-
+        // checks if you can dash and then lets you dash - Alexander
        if (Input.GetKeyDown(dash) && canDash)
         {
             StartCoroutine(Dash());
         }
 
+       // checks if you can jump and whether you get the dash jump bonus or not
         if (Input.GetKeyDown(Jump) && jumpTimes > 0 && canJump)
         {
             jumpTimes -= 1;
@@ -115,10 +121,12 @@ public class Movement : MonoBehaviour
                 rb.AddForce(Vector2.up * jumpForce * dashjumpBonus, ForceMode2D.Impulse);
                 dashJumpBonusActive = 0;
             }
+            // Add a jump cooldown - Alexander
                 canJump = false;
             StartCoroutine(JumpCooldown());
 
         }
+        // Gives the player the dash back and jump back when you touch the ground - Alexander
         if (isGrounded)
         {            
             jumpTimes = 1;
@@ -127,6 +135,7 @@ public class Movement : MonoBehaviour
            
             
         }
+        // if you are dashing then you get the dash jump bonus and cant dash or jump.
         if (isDashing)
             {   
                 canDash = false;
@@ -137,6 +146,7 @@ public class Movement : MonoBehaviour
         
     }
 
+    //flips the player when they move - Alexander
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
@@ -148,6 +158,7 @@ public class Movement : MonoBehaviour
         }
     }
 
+    // alows the player to dash -  Alexander
     IEnumerator Dash()
     {
         canDash = false;
@@ -168,11 +179,14 @@ public class Movement : MonoBehaviour
 
     }
 
+    // makes it so you can get the dash jump bonus if you dashed ojn the ground - ALexander
     IEnumerator DashJumpBonusWait()
     {
         yield return new WaitForEndOfFrame();
         dashJumpBonusActive = 1;
     }
+
+    // A jump cooldown for the player - Alexander
     IEnumerator JumpCooldown()
     {
         yield return new WaitForSeconds(jumpCooldown);
