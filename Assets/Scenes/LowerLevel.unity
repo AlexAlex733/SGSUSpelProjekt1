@@ -251040,9 +251040,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHP: 3
   playerMaxHP: 3
-  heart1: {fileID: 0}
-  heart2: {fileID: 0}
-  heart3: {fileID: 0}
+  heart1: {fileID: 177366236}
+  heart2: {fileID: 387107515}
+  heart3: {fileID: 258604327}
 --- !u!212 &1407154440
 SpriteRenderer:
   m_ObjectHideFlags: 0
