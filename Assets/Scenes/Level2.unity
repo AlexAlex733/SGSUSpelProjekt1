@@ -68531,6 +68531,7 @@ MonoBehaviour:
   dashjumpBonus: 1.5
   dashPower: 25
   dashJumpBonusActive: 0
+  horizontal: 0
   groundCheckPoint: {fileID: 344716107}
   groundCheckRadius: 0.1
   groundMask:
@@ -75622,7 +75623,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128

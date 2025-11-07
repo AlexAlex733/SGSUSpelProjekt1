@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
 
 
 
-    private float horizontal;
+    [SerializeField] private float horizontal;
    
     public Transform groundCheckPoint; // Point from where the radius will be positioned
     public float groundCheckRadius = 0.2f; // Distance of the ground check
@@ -71,13 +71,13 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if(horizontal != 0)
+        if(horizontal != 0 && isGrounded)
         {
-            walkingSource.Play();
+            walkingSource.enabled = true;
         }
-        else if (horizontal == 0)
+        else if (horizontal == 0 || !isGrounded)
         {
-            walkingSource.Stop();
+            walkingSource.enabled = false;
         }
 
         if (isDashing)
