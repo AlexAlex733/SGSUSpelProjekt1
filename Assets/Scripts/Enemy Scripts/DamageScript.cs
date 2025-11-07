@@ -24,7 +24,9 @@ public class DamageScript : MonoBehaviour
             {
                 playerHP.playerHP -= damage;
                 Debug.Log("Player took " + damage + " damage. Current HP: " + playerHP.playerHP);
+                
             }
+
         }
     }
 }
