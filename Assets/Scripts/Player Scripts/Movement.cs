@@ -33,6 +33,7 @@ public class Movement : MonoBehaviour
     [SerializeField] KeyCode dash = KeyCode.LeftShift;
     private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
+    Animator animator;
     
 
 
