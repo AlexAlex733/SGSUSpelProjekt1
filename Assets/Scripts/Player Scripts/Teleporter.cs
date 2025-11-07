@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,6 +31,13 @@ public class Teleporter : MonoBehaviour
         {
             SceneManager.LoadScene("Surface Level");
             Debug.Log("Player has entered the teleporter and is being teleported to Level3.");
+
+        
+        }
+        else if (collision.CompareTag("Teleporter_End"))
+            {
+            SceneManager.LoadScene("Ending");
+            Debug.Log("Player has entered the teleporter and is being teleported to the Endscene.");
         }
     }
 }
