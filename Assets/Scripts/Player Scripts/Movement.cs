@@ -34,6 +34,8 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
     Animator animator;
+
+    
     
 
 
