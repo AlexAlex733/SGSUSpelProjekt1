@@ -8,6 +8,7 @@ TagManager:
   - Teleporter_2
   - Teleporter_3
   - Enemy
+  - Teleporter_End
   layers:
   - Default
   - TransparentFX
