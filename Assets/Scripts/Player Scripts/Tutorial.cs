@@ -14,22 +14,22 @@ public class Tutorial : MonoBehaviour
             if (i == popUpIndex)
             {
                 print("på" + i);
-                popUps[i].SetActive(true); // Activate the current pop-up
+                popUps[i].SetActive(true); // activera popups
             }
             else
             {
                 print("av" + i);
-                popUps[i].SetActive(false); // Deactivate other pop-ups
+                popUps[i].SetActive(false); // stänger av popups
             }
         }   
         if (popUpIndex == 0)
         {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) // om duy trycker på A eller D så går vi vidare till nästa popup
             {
                 popUpIndex++;
             }
         } 
-        else if (popUpIndex == 1)
+        else if (popUpIndex == 1) // om vi trycker på space så går vi vidare till nästa popup
         {
             if (Input.GetKey(KeyCode.Space))
             {
