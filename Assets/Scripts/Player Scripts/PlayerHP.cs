@@ -43,6 +43,7 @@ public class PlayerHP : MonoBehaviour
             heart1.SetActive(false);
             heart2.SetActive(false);
             heart3.SetActive(false);
+            Ondie();
         }
     }
 
@@ -53,8 +54,12 @@ public class PlayerHP : MonoBehaviour
 
     public void Ondie ()
     {
+
         SceneManager.LoadScene("Deathscene");
         Debug.Log("Player has died.");
+        
+     
+
     }
     
 }
