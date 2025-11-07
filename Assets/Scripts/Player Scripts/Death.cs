@@ -10,10 +10,10 @@ public class Death : MonoBehaviour
 
     void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy")) // kollar om vi kolliderar med ett object som har taggen "Enemy"
         {
 
-            transform.position = RespawnPoint.position;
+            transform.position = RespawnPoint.position; // sätter spelarens position till RespawnPoint positionen
             Debug.Log("Player has taken damage and respawned.");
 
 
@@ -24,7 +24,7 @@ public class Death : MonoBehaviour
     }
     public void OnDie ()
     {
-        transform.position = SpawnPoint.position;
+        transform.position = SpawnPoint.position; // sätter spelarens position till SpawnPoint positionen
         Debug.Log("Player has died and respawned at the starting point.");
     }
 }

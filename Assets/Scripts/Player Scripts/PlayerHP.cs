@@ -13,12 +13,13 @@ public class PlayerHP : MonoBehaviour
   
     void Start()
     {
+        // sätter våran Hp till max när vi börjar spelet
         playerHP = playerMaxHP;
     }
     void Update()
     {
-       
 
+        // Hanterar hjärtan baserat på spelarens HP
         if (playerHP >= 3)
         {
             heart1.SetActive(true);
@@ -52,10 +53,10 @@ public class PlayerHP : MonoBehaviour
        
     
 
-    public void Ondie ()
+    public void Ondie () // när du dör skicas du till Deathscene
     {
 
-        SceneManager.LoadScene("Deathscene");
+        SceneManager.LoadScene("Deathscene"); 
         Debug.Log("Player has died.");
         
      
