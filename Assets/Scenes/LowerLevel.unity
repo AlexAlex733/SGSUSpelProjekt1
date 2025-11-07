@@ -250290,6 +250290,7 @@ GameObject:
   - component: {fileID: 1407154434}
   - component: {fileID: 1407154442}
   - component: {fileID: 1407154443}
+  - component: {fileID: 1407154444}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -250443,17 +250444,17 @@ MonoBehaviour:
   dashTime: 0.2
   dashjumpBonus: 1.5
   dashPower: 25
+  dashJumpBonusActive: 1
   groundCheckPoint: {fileID: 736290254}
   groundCheckRadius: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   jumpTimes: 2
+  isGrounded: 0
   speed: 5.3
   jumpForce: 6
   jumpCooldown: 0.4
-  right: 100
-  left: 97
   Jump: 32
   dash: 304
   tr: {fileID: 1407154443}
@@ -250684,6 +250685,20 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1407154444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407154433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79f9687dfc0ef647b46a664a6026a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RespawnPoint: {fileID: 1407154441}
+  SpawnPoint: {fileID: 1407154441}
 --- !u!1 &1474903077
 GameObject:
   m_ObjectHideFlags: 0
