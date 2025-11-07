@@ -35,13 +35,23 @@ public class Movement : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
     Animator animator;
 
-    
+    [SerializeField] AudioSource walkingSource;
+    [SerializeField] AudioSource jumpSource;
+    [SerializeField] AudioSource dashSource;
+
+    [SerializeField] AudioClip walkingSound;
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip dashSound;
     
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        walkingSource.clip = walkingSound;
+        jumpSource.clip = jumpSound;
+        dashSource.clip = dashSound;
+        walkingSource.loop = true;
         tr.emitting = false;
         rb = GetComponent<Rigidbody2D>(); // Hämtar Rigidbody2D-komponenten
     }
@@ -61,6 +71,15 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        if(horizontal != 0)
+        {
+            walkingSource.Play();
+        }
+        else if (horizontal == 0)
+        {
+            walkingSource.Stop();
+        }
+
         if (isDashing)
         {
             return;
@@ -88,10 +107,12 @@ public class Movement : MonoBehaviour
             jumpTimes -= 1;
             if (dashJumpBonusActive == 0)
             {
+                jumpSource.Play();
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
             else if (dashJumpBonusActive == 1)
             {
+                jumpSource.Play();
                 rb.AddForce(Vector2.up * jumpForce * dashjumpBonus, ForceMode2D.Impulse);
                 dashJumpBonusActive = 0;
             }
@@ -136,6 +157,7 @@ public class Movement : MonoBehaviour
         rb.gravityScale = 0f;
         transform.position += new Vector3 (0f, 0.02f, 0f);
         StartCoroutine(DashJumpBonusWait());
+        dashSource.Play();
         rb.linearVelocity = new Vector2(transform.localScale.x * dashPower, 0f);
         tr.emitting = true;
         yield return new WaitForSeconds(dashTime);
