@@ -811,7 +811,7 @@ GameObject:
   - component: {fileID: 574504873}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249733,7 +249733,7 @@ GameObject:
   - component: {fileID: 1211144073}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250443,17 +250443,17 @@ MonoBehaviour:
   dashTime: 0.2
   dashjumpBonus: 1.5
   dashPower: 25
-  dashJumpBonusActive: 1
   groundCheckPoint: {fileID: 736290254}
   groundCheckRadius: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   jumpTimes: 2
-  isGrounded: 0
   speed: 5.3
   jumpForce: 6
   jumpCooldown: 0.4
+  right: 100
+  left: 97
   Jump: 32
   dash: 304
   tr: {fileID: 1407154443}
@@ -250838,7 +250838,7 @@ GameObject:
   - component: {fileID: 1577919866}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
