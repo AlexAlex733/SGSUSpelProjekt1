@@ -31,7 +31,7 @@ public class enemyController : MonoBehaviour //Måste ha samma namn som scriptet
 
     {
 
-        if (Vector2.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange)
+        if (Vector2.Distance(target.position, transform.position) <= maxRange && Vector2.Distance(target.position, transform.position) >= minRange)
 
         {
 
@@ -59,7 +59,8 @@ public class enemyController : MonoBehaviour //Måste ha samma namn som scriptet
 
        // anim.SetFloat("MoveVertical", (target.position.y - transform.position.y)); //enemy följer efter y axeln
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime); //härma players rörelser
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); //härma players rörelser
+
 
     }
 
