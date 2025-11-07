@@ -17,8 +17,8 @@ public class PlayerHP : MonoBehaviour
     }
     void Update()
     {
-       
 
+        // Hanterar hjärtan baserat på spelarens HP - Alexander
         if (playerHP >= 3)
         {
             heart1.SetActive(true);
@@ -52,7 +52,7 @@ public class PlayerHP : MonoBehaviour
        
     
 
-    public void Ondie ()
+    public void Ondie () // när spelarens HP är 0 så skicas dem till Deathscene - Rasmus
     {
 
         SceneManager.LoadScene("Deathscene");

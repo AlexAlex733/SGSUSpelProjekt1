@@ -23,7 +23,7 @@ public class enemyController : MonoBehaviour //Måste ha samma namn som scriptet
 
     {
 
-       // anim = GetComponent<Animator>(); //hämta animator
+      
 
     }
 
@@ -35,7 +35,7 @@ public class enemyController : MonoBehaviour //Måste ha samma namn som scriptet
 
         {
 
-            FollowPlayer(); //om player är inom max range så följ efter player, när du kommit tillräckligt nära "minRange" sluta följa
+            FollowPlayer(); //om player är inom max range så följ efter player, när du kommit tillräckligt nära "minRange" sluta följa - Rasmus 
 
         }
 
@@ -43,7 +43,7 @@ public class enemyController : MonoBehaviour //Måste ha samma namn som scriptet
 
         {
 
-            GoHome(); //om player lämnar max range, sluta följa och gå till hempositionen
+            GoHome(); //om player lämnar max range, sluta följa och gå till hempositionen - Rasmus
 
         }
 
@@ -53,13 +53,8 @@ public class enemyController : MonoBehaviour //Måste ha samma namn som scriptet
 
     {
 
-        //anim.SetBool("WithinRange", true); //om enemy följer player starta withinRange animationerna
 
-        // anim.SetFloat("MoveHorizontal", (target.position.x - transform.position.x)); //enemy följer efter x axeln
-
-       // anim.SetFloat("MoveVertical", (target.position.y - transform.position.y)); //enemy följer efter y axeln
-
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); //härma players rörelser
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); //härma players rörelser -Rasmus
 
 
     }
@@ -68,17 +63,14 @@ public class enemyController : MonoBehaviour //Måste ha samma namn som scriptet
 
     {
 
-       // anim.SetFloat("MoveHorizontal", (homePos.position.x - transform.position.x)); //enemy går hem efter x axeln
-
-       // anim.SetFloat("MoveVertical", (homePos.position.y - transform.position.y)); //enemy går hem efter y axeln
-
-        transform.position = Vector2.MoveTowards(transform.position, homePos.position, speed * Time.deltaTime); //player härmar vilken position hem har
+       
+        transform.position = Vector2.MoveTowards(transform.position, homePos.position, speed * Time.deltaTime); //player härmar vilken position hem har - Rasmus
 
         if (Vector2.Distance(transform.position, homePos.position) == 0)
 
         {
 
-           // anim.SetBool("WithinRange", false); //om hem positonen är 0 (enemy är hemma) sätt WithinRange till falskt
+          
 
         }
 
